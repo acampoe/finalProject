@@ -23,8 +23,17 @@ public class Producto {
         this.id = id;
     }
 
+    public int getFoto() {
+        return foto;
+    }
+
+    public void setFoto(int foto) {
+        this.foto = foto;
+    }
+
     public Producto(String id, String tipo, String nombre, int cantidadDisponible, String unidadDeMedida, double precio, int foto) {
         this.foto = foto;
+
         this.id = id;
         this.tipo = tipo;
         this.nombre = nombre;

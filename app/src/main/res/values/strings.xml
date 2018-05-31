@@ -37,4 +37,5 @@
         <item>ml</item>
     </string-array>
     <string name="registro_exitoso">Producto registrado exitosamente!</string>
+    <string name="disponibles">Unidades Disponibles</string>
 </resources>
