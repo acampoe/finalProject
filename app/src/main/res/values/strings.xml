@@ -38,4 +38,10 @@
     </string-array>
     <string name="registro_exitoso">Producto registrado exitosamente!</string>
     <string name="disponibles">Unidades Disponibles</string>
+    <string name="dollar1">Dólares</string>
+    <string name="peso">COP</string>
+    <string name="eliminar">Eliminar Producto</string>
+    <string name="pregunta_eliminacion">¿Está seguro de eliminar éste producto?</string>
+    <string name="positivo">Aceptar</string>
+    <string name="negativo">Cancelar</string>
 </resources>

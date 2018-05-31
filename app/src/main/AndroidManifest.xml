@@ -26,7 +26,8 @@
         <activity
             android:name=".ListaCompra"
             android:label="@string/title_activity_lista_compra"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".DetalleProducto"></activity>
     </application>
 
 </manifest>

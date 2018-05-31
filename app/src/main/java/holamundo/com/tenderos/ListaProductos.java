@@ -76,6 +76,18 @@ public class ListaProductos extends AppCompatActivity implements AdaptadorProduc
 
     @Override
     public void onProductoClickListener(Producto p) {
+        Intent i = new Intent(ListaProductos.this,DetalleProducto.class);
+        Bundle b = new Bundle();
+        b.putString("id",p.getId());
+        b.putString("nombre",p.getNombre());
+        b.putString("tipo",p.getTipo());
+        b.putString("medida",p.getUnidadDeMedida());
+        b.putInt("cantidad",p.getCantidadDisponible());
+        b.putDouble("precio",p.getPrecio());
+        b.putInt("foto",p.getFoto());
+
+        i.putExtra("datos",b);
+        startActivity(i);
 
     }
 }
