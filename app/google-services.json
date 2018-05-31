@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "784543961527",
+    "firebase_url": "https://tenderos-889ce.firebaseio.com",
+    "project_id": "tenderos-889ce",
+    "storage_bucket": "tenderos-889ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784543961527:android:0ecf8ac5c6343de9",
+        "android_client_info": {
+          "package_name": "holamundo.com.tenderos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784543961527-l1v6h7p2tlktubbrheth3gceujas3j3k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "holamundo.com.tenderos",
+            "certificate_hash": "5e632bb4b66fefa6ed1f1007e022935fe7439d8d"
+          }
+        },
+        {
+          "client_id": "784543961527-djst0n02vflsf76hvv3otjd31o9hto7v.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "784543961527-djst0n02vflsf76hvv3otjd31o9hto7v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB5S-9kobOJX9uo_JnWHQB2Z3k_PTeATI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784543961527-djst0n02vflsf76hvv3otjd31o9hto7v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

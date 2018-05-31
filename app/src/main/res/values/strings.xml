@@ -14,8 +14,27 @@
     <string name="guardar">Guardar</string>
     <string name="limpiar">Limpiar</string>
     <string name="agregar">Registrar Producto</string>
-    <string name="dollar">$</string>
+    <string name="dollar">COP$</string>
     <string name="lista_productos">Lista de Productos</string>
     <string name="title_activity_lista_productos">Lista de Productos</string>
     <string name="title_activity_lista_compra">Lista de Compras</string>
+    <string-array name="tipos">
+        <item>Carnes</item>
+        <item>Comida Varios</item>
+        <item>Aseo Personal</item>
+        <item>Productos de Limpieza</item>
+        <item>Miscelanea</item>
+        <item>Bebidas no Alcoholicas</item>
+        <item>Licores</item>
+        <item>Panaderia</item>
+        <item>Otro</item>
+    </string-array>
+    <string-array name="unidad_medidas">
+        <item>Libra</item>
+        <item>Kilo</item>
+        <item>Unidad</item>
+        <item>Litro</item>
+        <item>ml</item>
+    </string-array>
+    <string name="registro_exitoso">Producto registrado exitosamente!</string>
 </resources>
