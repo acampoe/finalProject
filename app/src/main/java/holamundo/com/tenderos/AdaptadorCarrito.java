@@ -32,6 +32,8 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Prod
         holder.cantidad.setText(""+p.getCantidadDisponible()+" "+p.getUnidadDeMedida());
         holder.precio.setText("$"+p.getPrecio());
         holder.cantidadTitle.setText(R.string.cantidad);
+        holder.totalCarrito.setText("$"+p.getPrecio()*p.getCantidadDisponible());
+        holder.totalTitulo.setText(R.string.precio_total);
 
         holder.v.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -53,6 +55,8 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Prod
         private TextView cantidad;
         private TextView precio;
         private TextView cantidadTitle;
+        private TextView totalTitulo;
+        private TextView totalCarrito;
         private View v;
 
         public ProductoViewHolder(View itemView) {
@@ -64,6 +68,8 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Prod
             cantidad = v.findViewById(R.id.lblUnidades);
             precio = v.findViewById(R.id.lblPrecio);
             cantidadTitle = v.findViewById(R.id.lblUnidadesDisponibles);
+            totalTitulo = v.findViewById(R.id.lblTotalTitulo);
+            totalCarrito = v.findViewById(R.id.lblTotalCarrito);
         }
     }
     public interface OnProductoClickListener{
