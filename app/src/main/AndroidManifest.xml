@@ -36,7 +36,8 @@
         <activity
             android:name=".Carrito"
             android:label="@string/title_activity_carrito"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".DetalleCarrito"></activity>
     </application>
 
 </manifest>

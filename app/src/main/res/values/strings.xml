@@ -49,4 +49,6 @@
     <string name="ingrese_cantidad">Ingrese Cantidad</string>
     <string name="agregado">Producto agregado</string>
     <string name="title_activity_carrito">Carrito</string>
+    <string name="carrito_title">Carrito</string>
+    <string name="eliminar_carrito">Eliminar Producto</string>
 </resources>

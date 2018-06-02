@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".DetalleCarrito"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <ImageView
+            android:id="@+id/imgDetalleCarrito"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imgFotoDetalle"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                app:srcCompat="@drawable/bag" />
+            android:layout_height="200dp"
+            app:srcCompat="@drawable/bag" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/lblNombreDetalle"
+                android:id="@+id/lblNombreCarrito"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -46,7 +46,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/lblTipoDetalle"
+                android:id="@+id/lblTipoCarrito"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -58,7 +58,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/cantidad2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/disponibles"
@@ -66,13 +66,13 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/lblUnidadesDetalle"
+                android:id="@+id/lblUnidadesCarrito"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/lblMedidaDetalle"
+                android:id="@+id/lblMedidaCarrito"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp" />
@@ -91,7 +91,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/lblPrecioDetalle"
+                android:id="@+id/lblPrecioCarrito"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -100,12 +100,10 @@
         </TableRow>
     </TableLayout>
 
-            <Button
-                android:id="@+id/button2"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="eliminar"
-                android:text="@string/eliminar" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnEliminarCarrito"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/eliminar_carrito" />
+    </LinearLayout>
