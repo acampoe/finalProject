@@ -45,9 +45,8 @@ public class DetalleProducto extends AppCompatActivity {
         id = bundle.getString("id");
         lblNombreDetalle.setText(nombre);
         lblTipoDetalle.setText(tipo);
-        lblCantidadDetalle.setText(""+cantidad);
-        lblUnidadDetalle.setText(unidad);
-        lblPrecioDetalle.setText(""+precio);
+        lblCantidadDetalle.setText(""+cantidad+" "+unidad);
+        lblPrecioDetalle.setText("$"+precio);
         fotoDetalle.setImageResource(foto);
     }
 

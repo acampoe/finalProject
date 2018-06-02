@@ -83,6 +83,7 @@ public class AgregarProducto extends AppCompatActivity {
         p.guardar();
 
         Snackbar.make(v,R.string.registro_exitoso,Snackbar.LENGTH_LONG).setAction("Action",null).show();
+        onBackPressed();
     }
 
     public void limpiar(){

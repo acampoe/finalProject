@@ -29,8 +29,8 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Prod
         holder.foto.setImageResource(p.getFoto());
         holder.nombre.setText(p.getNombre());
         holder.tipo.setText(p.getTipo());
-        holder.cantidad.setText(""+p.getCantidadDisponible());
-        holder.precio.setText(""+p.getPrecio());
+        holder.cantidad.setText(""+p.getCantidadDisponible()+" "+p.getUnidadDeMedida());
+        holder.precio.setText("$"+p.getPrecio());
         holder.cantidadTitle.setText(R.string.cantidad);
 
         holder.v.setOnClickListener(new View.OnClickListener(){

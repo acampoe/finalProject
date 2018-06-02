@@ -48,10 +48,9 @@ public class DetalleCompra extends AppCompatActivity {
         id = bundle.getString("id");
         lblNombreCompra.setText(nombre);
         lblTipoCompra.setText(tipo);
-        lblCantidadCompra.setText(""+cantidad);
-        lblUnidadCompra.setText(unidad);
+        lblCantidadCompra.setText(""+cantidad+" "+unidad);
         lblUnidadCompra2.setText(unidad);
-        lblPrecioCompra.setText(""+precio);
+        lblPrecioCompra.setText("$"+precio);
         fotoCompra.setImageResource(foto);
         cantidadDeseada = 0;
     }
