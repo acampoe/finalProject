@@ -9,8 +9,10 @@ import java.util.Random;
 public class Data {
     private static String productDB = "productos";
     private static String purchaseDB = "compras";
+    private static String carritoDB = "carrito";
     private static DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     private static ArrayList<Producto> productos = new ArrayList<>();
+    public static ArrayList<Producto> carrito = new ArrayList<>();
 
     public static void guardarProducto(Producto p){
         databaseReference.child(productDB).child(p.getId()).setValue(p);
@@ -19,6 +21,7 @@ public class Data {
     public static void guardarVenta(Venta v){
         databaseReference.child(purchaseDB).child(v.getId()).setValue(v);
     }
+
 
     public static ArrayList<Producto> obtener(){
         return productos;

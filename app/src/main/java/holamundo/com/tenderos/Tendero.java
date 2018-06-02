@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import holamundo.com.tenderos.main.Principal;
+
 public class Tendero extends AppCompatActivity {
 
     @Override

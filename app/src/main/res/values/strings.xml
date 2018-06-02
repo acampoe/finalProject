@@ -44,4 +44,9 @@
     <string name="pregunta_eliminacion">¿Está seguro de eliminar éste producto?</string>
     <string name="positivo">Aceptar</string>
     <string name="negativo">Cancelar</string>
+    <string name="title_activity_cliente_main">ClienteMain</string>
+    <string name="carrito">Agregar al Carrito</string>
+    <string name="ingrese_cantidad">Ingrese Cantidad</string>
+    <string name="agregado">Producto agregado</string>
+    <string name="title_activity_carrito">Carrito</string>
 </resources>
