@@ -41,7 +41,7 @@ public class DetalleCarrito extends AppCompatActivity {
         foto = bundle.getInt("foto");
         id = bundle.getString("id");
         lblPrecioCarrito.setText("$"+precio);
-        lblPrecioTotal.setText(""+precio*cantidad);
+        lblPrecioTotal.setText("$"+precio*cantidad);
         lblCantidadCarrito.setText(""+cantidad+" "+unidad);
         lblTipoCarrito.setText(tipo);
         lblNombreCarrito.setText(nombre);

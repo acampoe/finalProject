@@ -77,7 +77,7 @@ public class AgregarProducto extends AppCompatActivity {
         nombre = txtNombre.getText().toString();
         medida = spnMedida.getSelectedItem().toString();
         precio = Double.parseDouble(txtPrecio.getText().toString());
-        cantidad = Integer.parseInt(txtPrecio.getText().toString());
+        cantidad = Integer.parseInt(txtCantidad.getText().toString());
         id = Data.getId();
         Producto p = new Producto(id,tipo,nombre,cantidad,medida,precio,foto);
         p.guardar();
