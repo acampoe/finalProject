@@ -62,4 +62,20 @@ public class Carrito extends AppCompatActivity implements AdaptadorCarrito.OnPro
         i.putExtra("datos",b);
         startActivity(i);
     }
+
+    public void launchCheckout(View v){
+        if (validar()){
+            Intent i = new Intent(Carrito.this, Checkout.class);
+            startActivity(i);
+        }else{
+            Snackbar.make(v,R.string.carrito_vacio,Snackbar.LENGTH_LONG).setAction("Action",null).show();
+        }
+    }
+    public boolean validar(){
+        if (Data.carrito.isEmpty()){
+            return false;
+        }else{
+            return true;
+        }
+    }
 }

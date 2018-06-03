@@ -52,4 +52,10 @@
     <string name="title_activity_carrito">Carrito</string>
     <string name="carrito_title">Carrito</string>
     <string name="eliminar_carrito">Eliminar</string>
+    <string name="cantidad_productos_carrito">Cantidad de productos en el carrito</string>
+    <string name="comprar">Guardar Compra</string>
+    <string name="carrito_vacio">El carrito está vacio</string>
+    <string name="client_name">Ingrese su nombre</string>
+    <string name="compra_exitosa">A punto de registrar su compra, confirme.</string>
+    <string name="confirma_compra">Confirmar Compra</string>
 </resources>
