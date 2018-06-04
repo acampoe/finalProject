@@ -58,4 +58,6 @@
     <string name="client_name">Ingrese su nombre</string>
     <string name="compra_exitosa">A punto de registrar su compra, confirme.</string>
     <string name="confirma_compra">Confirmar Compra</string>
+    <string name="nombre_cliente">Nombre del cliente</string>
+    <string name="productos_comprados">Total productos comprados</string>
 </resources>

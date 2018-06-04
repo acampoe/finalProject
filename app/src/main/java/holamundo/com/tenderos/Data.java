@@ -11,15 +11,18 @@ public class Data {
     private static String purchaseDB = "compras";
     private static String carritoDB = "carrito";
     private static DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-    private static ArrayList<Producto> productos = new ArrayList<>();
+    public static ArrayList<Producto> productos = new ArrayList<>();
     public static ArrayList<Producto> carrito = new ArrayList<>();
-
+    public static ArrayList<Venta> ventas = new ArrayList<>();
     public static void guardarProducto(Producto p){
         databaseReference.child(productDB).child(p.getId()).setValue(p);
     }
 
     public static void guardarVenta(Venta v){
         databaseReference.child(purchaseDB).child(v.getId()).setValue(v);
+    }
+    public static void descontarUnidad(Producto p, int unidades){
+        databaseReference.child(productDB).child(p.getId()).child("cantidadDisponible").setValue(unidades);
     }
 
 

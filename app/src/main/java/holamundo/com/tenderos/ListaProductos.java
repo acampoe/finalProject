@@ -20,7 +20,6 @@ import java.util.ArrayList;
 
 public class ListaProductos extends AppCompatActivity implements AdaptadorProducto.OnProductoClickListener{
     private RecyclerView lstProductos;
-    private Integer i;
     private ArrayList<Producto> productos;
     private AdaptadorProducto adapter;
     private LinearLayoutManager llm;

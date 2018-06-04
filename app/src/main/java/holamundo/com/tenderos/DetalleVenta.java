@@ -2,7 +2,6 @@ package holamundo.com.tenderos;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,40 +17,41 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ListaCompra extends AppCompatActivity implements AdaptadorVenta.OnVentaClickListener{
-    private RecyclerView lstCompras;
-    private ArrayList<Venta> ventas;
-    private AdaptadorVenta adapter;
+public class DetalleVenta extends AppCompatActivity implements AdaptadorCarrito.OnProductoClickListener{
+    private RecyclerView lstDetalleVentas;
+    private ArrayList<Producto> productos;
+    private AdaptadorCarrito adapter;
     private LinearLayoutManager llm;
     private String db = "compras";
     private DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lista_compra);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setContentView(R.layout.activity_detalle_venta);
+        setTitle(getResources().getString(R.string.carrito_title));
 
-        lstCompras = findViewById(R.id.lstCompras);
-        ventas = new ArrayList<>();
+        lstDetalleVentas = findViewById(R.id.lstDetalleVentas);
+        productos = new ArrayList<>();
+
         llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
-        adapter = new AdaptadorVenta(ventas,this);
-        lstCompras.setLayoutManager(llm);
-        lstCompras.setAdapter(adapter);
+        adapter = new AdaptadorCarrito(productos,this);
+
+        lstDetalleVentas.setLayoutManager(llm);
+        lstDetalleVentas.setAdapter(adapter);
+
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child(db).addValueEventListener(new ValueEventListener() {
+        DatabaseReference reference = databaseReference.child(db);
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ventas.clear();
                 if (dataSnapshot.exists()){
                     for (DataSnapshot snapshot:dataSnapshot.getChildren()){
                         Venta v = snapshot.getValue(Venta.class);
-                        ventas.add(v);
+                        //productos = v.getProductos(); Se supone que se hace así en mi modelo, pero no en Firebase!
                     }
                 }
                 adapter.notifyDataSetChanged();
-                Data.ventas = ventas;
             }
 
             @Override
@@ -60,16 +60,15 @@ public class ListaCompra extends AppCompatActivity implements AdaptadorVenta.OnV
             }
         });
     }
+
     public void onBackPressed() {
         finish();
-        Intent i = new Intent(ListaCompra.this,Tendero.class);
+        Intent i = new Intent(DetalleVenta.this,ListaCompra.class);
         startActivity(i);
     }
 
     @Override
-    public void onVentaClickListener(Venta v) {
-        Intent i = new Intent(ListaCompra.this,DetalleVenta.class);
-        startActivity(i);
+    public void onProductoClickListener(Producto p){
 
     }
 }
