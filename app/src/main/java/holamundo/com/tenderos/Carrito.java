@@ -55,8 +55,8 @@ public class Carrito extends AppCompatActivity implements AdaptadorCarrito.OnPro
         b.putString("nombre",p.getNombre());
         b.putString("tipo",p.getTipo());
         b.putString("medida",p.getUnidadDeMedida());
-        b.putInt("cantidad",p.getCantidadDisponible());
-        b.putDouble("precio",p.getPrecio());
+        b.putDouble("cantidad",p.getCantidadDisponible());
+        b.putLong("precio",p.getPrecio());
         b.putInt("foto",p.getFoto());
 
         i.putExtra("datos",b);

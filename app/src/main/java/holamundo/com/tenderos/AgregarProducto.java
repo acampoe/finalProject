@@ -51,14 +51,14 @@ public class AgregarProducto extends AppCompatActivity {
         spnTipo.setAdapter(adapterTipo);
 
         fotos = new ArrayList<>();
-        fotos.add(R.drawable.arroz);
+        /*fotos.add(R.drawable.arroz);
         fotos.add(R.drawable.desodorante);
         fotos.add(R.drawable.detergente);
         fotos.add(R.drawable.lentejas);
         fotos.add(R.drawable.pan);
         fotos.add(R.drawable.pezcado);
         fotos.add(R.drawable.pollo);
-        fotos.add(R.drawable.refresco);
+        fotos.add(R.drawable.refresco);*/
         fotos.add(R.drawable.bag);
     }
 
@@ -70,20 +70,35 @@ public class AgregarProducto extends AppCompatActivity {
 
     public void guardar(View v){
         String tipo,nombre,medida,id;
-        double precio;
-        int cantidad,foto;
+        long precio;
+        int foto;
+        double cantidad;
         foto = Data.imagenAleatoria(fotos);
         tipo = spnTipo.getSelectedItem().toString();
         nombre = txtNombre.getText().toString();
         medida = spnMedida.getSelectedItem().toString();
-        precio = Double.parseDouble(txtPrecio.getText().toString());
-        cantidad = Integer.parseInt(txtCantidad.getText().toString());
-        id = Data.getId();
-        Producto p = new Producto(id,tipo,nombre,cantidad,medida,precio,foto);
-        p.guardar();
 
-        Snackbar.make(v,R.string.registro_exitoso,Snackbar.LENGTH_LONG).setAction("Action",null).show();
-        onBackPressed();
+        id = Data.getId();
+        if (nombre.matches("")){
+            txtNombre.requestFocus();
+            txtNombre.setError(getResources().getString(R.string.error_nombre_producto));
+        }else if(txtCantidad.getText().toString().matches("")){
+            txtCantidad.requestFocus();
+            txtCantidad.setError(getResources().getString(R.string.error_cantidad));
+
+        }else if(txtPrecio.getText().toString().matches("")){
+            txtPrecio.requestFocus();
+            txtPrecio.setError(getResources().getString(R.string.error_precio));
+        }else{
+            precio = Long.parseLong(txtPrecio.getText().toString());
+            cantidad = Double.parseDouble(txtCantidad.getText().toString());
+            Producto p = new Producto(id,tipo,nombre,cantidad,medida,precio,foto);
+            p.guardar();
+
+            Snackbar.make(v,R.string.registro_exitoso,Snackbar.LENGTH_LONG).setAction("Action",null).show();
+            onBackPressed();
+        }
+
     }
 
     public void limpiar(){

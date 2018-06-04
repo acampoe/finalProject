@@ -23,7 +23,7 @@ public class ListaCompra extends AppCompatActivity implements AdaptadorVenta.OnV
     private ArrayList<Venta> ventas;
     private AdaptadorVenta adapter;
     private LinearLayoutManager llm;
-    private String db = "compras";
+    private String db = "ventas";
     private DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,6 @@ public class ListaCompra extends AppCompatActivity implements AdaptadorVenta.OnV
         setContentView(R.layout.activity_lista_compra);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         lstCompras = findViewById(R.id.lstCompras);
         ventas = new ArrayList<>();
         llm = new LinearLayoutManager(this);

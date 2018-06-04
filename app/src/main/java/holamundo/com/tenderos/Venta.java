@@ -68,7 +68,7 @@ public class Venta {
                 actual = Data.productos.get(j);
                 if (actual.getId().matches(p.getId())){
                     Data.productos.remove(j);
-                    int nueva_cantidad = actual.getCantidadDisponible()-p.getCantidadDisponible()/2;
+                    double nueva_cantidad = actual.getCantidadDisponible()-p.getCantidadDisponible();
                     actual.eliminar();
                     actual.setCantidadDisponible(nueva_cantidad);
                     Data.productos.add(actual);

@@ -5,9 +5,9 @@ public class Producto {
     private String id;
     private String tipo;
     private String nombre;
-    private int cantidadDisponible;
+    private double cantidadDisponible;
     private String unidadDeMedida;
-    private double precio;
+    private long precio;
 
     public Producto() {
         this.foto=0;
@@ -31,7 +31,7 @@ public class Producto {
         this.foto = foto;
     }
 
-    public Producto(String id, String tipo, String nombre, int cantidadDisponible, String unidadDeMedida, double precio, int foto) {
+    public Producto(String id, String tipo, String nombre, double cantidadDisponible, String unidadDeMedida, long precio, int foto) {
         this.foto = foto;
 
         this.id = id;
@@ -66,11 +66,11 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public int getCantidadDisponible() {
+    public double getCantidadDisponible() {
         return cantidadDisponible;
     }
 
-    public void setCantidadDisponible(int cantidadDisponible) {
+    public void setCantidadDisponible(double cantidadDisponible) {
         this.cantidadDisponible = cantidadDisponible;
     }
 
@@ -82,11 +82,11 @@ public class Producto {
         this.unidadDeMedida = unidadDeMedida;
     }
 
-    public double getPrecio() {
+    public long getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(long precio) {
         this.precio = precio;
     }
 

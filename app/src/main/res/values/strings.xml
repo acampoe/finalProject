@@ -60,4 +60,7 @@
     <string name="confirma_compra">Confirmar Compra</string>
     <string name="nombre_cliente">Nombre del cliente</string>
     <string name="productos_comprados">Total productos comprados</string>
+    <string name="error_nombre_producto">Ingrese nombre del producto!</string>
+    <string name="error_cantidad">Ingrese una cantidad válida!</string>
+    <string name="error_precio">Ingrese un precio válido!</string>
 </resources>

@@ -22,8 +22,9 @@ public class DetalleCompra extends AppCompatActivity {
     private Bundle bundle;
 
     private String nombre,tipo,unidad,id;
-    private double precio;
-    private int foto,cantidad,cantidadDeseada;
+    private long precio;
+    private int foto;
+    private double cantidad,cantidadDeseada;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,9 +42,9 @@ public class DetalleCompra extends AppCompatActivity {
         bundle = i.getBundleExtra("datos");
         nombre = bundle.getString("nombre");
         tipo = bundle.getString("tipo");
-        cantidad = bundle.getInt("cantidad");
+        cantidad = bundle.getDouble("cantidad");
         unidad = bundle.getString("medida");
-        precio = bundle.getDouble("precio");
+        precio = bundle.getLong("precio");
         foto = bundle.getInt("foto");
         id = bundle.getString("id");
         lblNombreCompra.setText(nombre);
@@ -58,7 +59,7 @@ public class DetalleCompra extends AppCompatActivity {
 
 
     public void agregarAlCarrito(View v){
-        cantidadDeseada = Integer.parseInt(txtCantidadDeseada.getText().toString());
+        cantidadDeseada = Double.parseDouble(txtCantidadDeseada.getText().toString());
         Producto p = new Producto(id,tipo,nombre,cantidadDeseada,unidad,precio,foto);
         Data.carrito.add(p);
         Snackbar.make(v,R.string.agregado,Snackbar.LENGTH_LONG).setAction("Action",null).show();
