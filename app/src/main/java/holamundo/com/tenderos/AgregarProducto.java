@@ -82,11 +82,11 @@ public class AgregarProducto extends AppCompatActivity {
         if (nombre.matches("")){
             txtNombre.requestFocus();
             txtNombre.setError(getResources().getString(R.string.error_nombre_producto));
-        }else if(txtCantidad.getText().toString().matches("")){
+        }else if(txtCantidad.getText().toString().matches("")||txtCantidad.getText().toString().matches("0*")){
             txtCantidad.requestFocus();
             txtCantidad.setError(getResources().getString(R.string.error_cantidad));
 
-        }else if(txtPrecio.getText().toString().matches("")){
+        }else if(txtPrecio.getText().toString().matches("")||txtCantidad.getText().toString().matches("0*")){
             txtPrecio.requestFocus();
             txtPrecio.setError(getResources().getString(R.string.error_precio));
         }else{

@@ -59,10 +59,16 @@ public class DetalleCompra extends AppCompatActivity {
 
 
     public void agregarAlCarrito(View v){
-        cantidadDeseada = Double.parseDouble(txtCantidadDeseada.getText().toString());
-        Producto p = new Producto(id,tipo,nombre,cantidadDeseada,unidad,precio,foto);
-        Data.carrito.add(p);
-        Snackbar.make(v,R.string.agregado,Snackbar.LENGTH_LONG).setAction("Action",null).show();
+        if (txtCantidadDeseada.getText().toString().matches("")){
+            txtCantidadDeseada.requestFocus();
+            txtCantidadDeseada.setError(getResources().getString(R.string.error_cantidad));
+        }else{
+            cantidadDeseada = Double.parseDouble(txtCantidadDeseada.getText().toString());
+            Producto p = new Producto(id,tipo,nombre,cantidadDeseada,unidad,precio,foto);
+            Data.carrito.add(p);
+            Snackbar.make(v,R.string.agregado,Snackbar.LENGTH_LONG).setAction("Action",null).show();
+        }
+
     }
 
     public void onBackPressed(){
