@@ -55,7 +55,7 @@
     <string name="cantidad_productos_carrito">Cantidad de productos en el carrito</string>
     <string name="comprar">Guardar Compra</string>
     <string name="carrito_vacio">El carrito está vacio</string>
-    <string name="client_name">Ingrese su nombre</string>
+    <string name="client_name">Nombre para la compra</string>
     <string name="compra_exitosa">A punto de registrar su compra, confirme.</string>
     <string name="confirma_compra">Confirmar Compra</string>
     <string name="nombre_cliente">Nombre del cliente</string>
@@ -63,4 +63,7 @@
     <string name="error_nombre_producto">Ingrese nombre del producto!</string>
     <string name="error_cantidad">Ingrese una cantidad válida!</string>
     <string name="error_precio">Ingrese un precio válido!</string>
+    <string name="error_existencias">No hay existencias!</string>
+    <string name="error_carrito">El producto ya existe en el carrito</string>
+    <string name="error_nombre_cliente">Nombre no válido</string>
 </resources>

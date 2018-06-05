@@ -20,7 +20,7 @@ public class ListaCompra extends AppCompatActivity implements AdaptadorVenta.OnV
     private ArrayList<Venta> ventas;
     private AdaptadorVenta adapter;
     private LinearLayoutManager llm;
-    private String db = "ventas";
+    private String db = "compras";
     private DatabaseReference databaseReference;
 
     @Override

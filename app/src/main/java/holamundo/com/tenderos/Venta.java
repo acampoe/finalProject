@@ -59,7 +59,6 @@ public class Venta {
     }
 
     public void guardar() {
-        Data.guardarVenta(this);
         Producto p = new Producto();
         Producto actual = new Producto();
         for (int i = 0; i < productos.size(); i++) {
@@ -67,15 +66,16 @@ public class Venta {
             for (int j = 0; j < Data.productos.size(); j++) {
                 actual = Data.productos.get(j);
                 if (actual.getId().matches(p.getId())) {
-                    Data.productos.remove(j);
                     double nueva_cantidad = actual.getCantidadDisponible() - p.getCantidadDisponible();
-                    actual.eliminar();
-                    actual.setCantidadDisponible(nueva_cantidad);
-                    Data.productos.add(actual);
-                    actual.guardar();
+                    if (nueva_cantidad <= 0) {
+                        actual.eliminar();
+                    } else {
+                        actual.updateQuantity(nueva_cantidad);
+                    }
                 }
             }
         }
+        Data.guardarVenta(this);
     }
 
     public void eliminar() {

@@ -97,4 +97,8 @@ public class Producto {
     public void eliminar() {
         Data.eliminarProducto(this);
     }
+
+    public void updateQuantity(double newQuantity){
+        Data.descontarUnidad(this,newQuantity);
+    }
 }

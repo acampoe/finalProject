@@ -23,7 +23,7 @@ public class Data {
         databaseReference.child(purchaseDB).child(v.getId()).setValue(v);
     }
 
-    public static void descontarUnidad(Producto p, int unidades) {
+    public static void descontarUnidad(Producto p, double unidades) {
         databaseReference.child(productDB).child(p.getId()).child("cantidadDisponible").setValue(unidades);
     }
 

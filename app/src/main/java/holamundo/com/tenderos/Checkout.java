@@ -3,6 +3,7 @@ package holamundo.com.tenderos;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -54,6 +55,8 @@ public class Checkout extends AppCompatActivity {
             });
             AlertDialog dialog = builder.create();
             dialog.show();
+        } else {
+            Snackbar.make(v, R.string.error_nombre_cliente, Snackbar.LENGTH_LONG).setAction("Action", null).show();
         }
     }
 

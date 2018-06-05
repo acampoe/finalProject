@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DetalleCompra extends AppCompatActivity {
     private TextView lblNombreCompra;
@@ -59,15 +60,42 @@ public class DetalleCompra extends AppCompatActivity {
 
 
     public void agregarAlCarrito(View v) {
-        if (txtCantidadDeseada.getText().toString().matches("")) {
-            txtCantidadDeseada.requestFocus();
-            txtCantidadDeseada.setError(getResources().getString(R.string.error_cantidad));
+        int sw = 0;
+        if (Data.carrito.isEmpty()) {
+            sw = 0;
         } else {
-            cantidadDeseada = Double.parseDouble(txtCantidadDeseada.getText().toString());
-            Producto p = new Producto(id, tipo, nombre, cantidadDeseada, unidad, precio, foto);
-            Data.carrito.add(p);
-            Snackbar.make(v, R.string.agregado, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            for (int j = 0; j < Data.carrito.size(); j++) {
+                if (Data.carrito.get(j).getId().matches(this.id)) {
+                    Snackbar.make(v, R.string.error_carrito, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                    sw = 1;
+                }
+            }
         }
+        if (sw == 0) {
+            if (txtCantidadDeseada.getText().toString().matches("")
+                    || txtCantidadDeseada.getText().toString().matches("0*")) {
+                txtCantidadDeseada.requestFocus();
+                txtCantidadDeseada.setError(getResources().getString(R.string.error_cantidad));
+            } else {
+                cantidadDeseada = Double.parseDouble(txtCantidadDeseada.getText().toString());
+                Producto p = new Producto(id, tipo, nombre, cantidadDeseada, unidad, precio, foto);
+                for (int j = 0; j < Data.productos.size(); j++) {
+                    if (Data.productos.get(j).getId().matches(p.getId())) {
+                        if (Data.productos.get(j).getCantidadDisponible() >= cantidadDeseada) {
+                            Data.carrito.add(p);
+                            onBackPressed();
+                            break;
+                        } else {
+                            Snackbar.make(v, R.string.error_existencias, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void guardar() {
 
     }
 
