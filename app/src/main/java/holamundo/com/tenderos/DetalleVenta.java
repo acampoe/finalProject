@@ -2,12 +2,9 @@ package holamundo.com.tenderos;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,13 +14,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class DetalleVenta extends AppCompatActivity implements AdaptadorCarrito.OnProductoClickListener{
+public class DetalleVenta extends AppCompatActivity implements AdaptadorCarrito.OnProductoClickListener {
     private RecyclerView lstDetalleVentas;
     private ArrayList<Producto> productos;
     private AdaptadorCarrito adapter;
     private LinearLayoutManager llm;
     private String db = "compras";
     private DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +33,7 @@ public class DetalleVenta extends AppCompatActivity implements AdaptadorCarrito.
 
         llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
-        adapter = new AdaptadorCarrito(productos,this);
+        adapter = new AdaptadorCarrito(productos, this);
 
         lstDetalleVentas.setLayoutManager(llm);
         lstDetalleVentas.setAdapter(adapter);
@@ -45,8 +43,8 @@ public class DetalleVenta extends AppCompatActivity implements AdaptadorCarrito.
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()){
-                    for (DataSnapshot snapshot:dataSnapshot.getChildren()){
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Venta v = snapshot.getValue(Venta.class);
                         //productos = v.getProductos(); Se supone que se hace así en mi modelo, pero no en Firebase!
                     }
@@ -63,12 +61,12 @@ public class DetalleVenta extends AppCompatActivity implements AdaptadorCarrito.
 
     public void onBackPressed() {
         finish();
-        Intent i = new Intent(DetalleVenta.this,ListaCompra.class);
+        Intent i = new Intent(DetalleVenta.this, ListaCompra.class);
         startActivity(i);
     }
 
     @Override
-    public void onProductoClickListener(Producto p){
+    public void onProductoClickListener(Producto p) {
 
     }
 }

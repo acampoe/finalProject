@@ -2,13 +2,10 @@ package holamundo.com.tenderos;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,13 +15,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ListaCompra extends AppCompatActivity implements AdaptadorVenta.OnVentaClickListener{
+public class ListaCompra extends AppCompatActivity implements AdaptadorVenta.OnVentaClickListener {
     private RecyclerView lstCompras;
     private ArrayList<Venta> ventas;
     private AdaptadorVenta adapter;
     private LinearLayoutManager llm;
     private String db = "ventas";
     private DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +33,7 @@ public class ListaCompra extends AppCompatActivity implements AdaptadorVenta.OnV
         ventas = new ArrayList<>();
         llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
-        adapter = new AdaptadorVenta(ventas,this);
+        adapter = new AdaptadorVenta(ventas, this);
         lstCompras.setLayoutManager(llm);
         lstCompras.setAdapter(adapter);
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -43,8 +41,8 @@ public class ListaCompra extends AppCompatActivity implements AdaptadorVenta.OnV
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 ventas.clear();
-                if (dataSnapshot.exists()){
-                    for (DataSnapshot snapshot:dataSnapshot.getChildren()){
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Venta v = snapshot.getValue(Venta.class);
                         ventas.add(v);
                     }
@@ -59,15 +57,16 @@ public class ListaCompra extends AppCompatActivity implements AdaptadorVenta.OnV
             }
         });
     }
+
     public void onBackPressed() {
         finish();
-        Intent i = new Intent(ListaCompra.this,Tendero.class);
+        Intent i = new Intent(ListaCompra.this, Tendero.class);
         startActivity(i);
     }
 
     @Override
     public void onVentaClickListener(Venta v) {
-        Intent i = new Intent(ListaCompra.this,DetalleVenta.class);
+        Intent i = new Intent(ListaCompra.this, DetalleVenta.class);
         startActivity(i);
 
     }

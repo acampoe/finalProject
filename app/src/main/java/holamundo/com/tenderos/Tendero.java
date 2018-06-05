@@ -1,8 +1,8 @@
 package holamundo.com.tenderos;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.google.firebase.database.DatabaseReference;
@@ -12,6 +12,7 @@ import holamundo.com.tenderos.main.Principal;
 
 public class Tendero extends AppCompatActivity {
     private DatabaseReference reference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,26 +22,27 @@ public class Tendero extends AppCompatActivity {
     }
 
 
-    public void launchListaCompras(View v){
+    public void launchListaCompras(View v) {
 
-            Intent i = new Intent(Tendero.this,ListaCompra.class);
-            startActivity(i);
-            finish();
+        Intent i = new Intent(Tendero.this, ListaCompra.class);
+        startActivity(i);
+        finish();
 
     }
-    public void launchListaProductos(View v){
-        Intent i = new Intent(Tendero.this,ListaProductos.class);
+
+    public void launchListaProductos(View v) {
+        Intent i = new Intent(Tendero.this, ListaProductos.class);
         startActivity(i);
         finish();
     }
 
     public void onBackPressed() {
         finish();
-        Intent i = new Intent(Tendero.this,Principal.class);
+        Intent i = new Intent(Tendero.this, Principal.class);
         startActivity(i);
     }
 
-    public void fff(View v){
+    public void fff(View v) {
 
     }
 }

@@ -58,7 +58,7 @@ public class Venta {
         this.clientName = clientName;
     }
 
-    public void guardar(){
+    public void guardar() {
         Data.guardarVenta(this);
         Producto p = new Producto();
         Producto actual = new Producto();
@@ -66,9 +66,9 @@ public class Venta {
             p = productos.get(i);
             for (int j = 0; j < Data.productos.size(); j++) {
                 actual = Data.productos.get(j);
-                if (actual.getId().matches(p.getId())){
+                if (actual.getId().matches(p.getId())) {
                     Data.productos.remove(j);
-                    double nueva_cantidad = actual.getCantidadDisponible()-p.getCantidadDisponible();
+                    double nueva_cantidad = actual.getCantidadDisponible() - p.getCantidadDisponible();
                     actual.eliminar();
                     actual.setCantidadDisponible(nueva_cantidad);
                     Data.productos.add(actual);
@@ -78,7 +78,7 @@ public class Venta {
         }
     }
 
-    public void eliminar(){
+    public void eliminar() {
         Data.eliminarVenta(this);
     }
 }

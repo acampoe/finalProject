@@ -9,17 +9,18 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.ProductoViewHolder>{
+public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.ProductoViewHolder> {
     private ArrayList<Producto> productos;
     private OnProductoClickListener clickListener;
-    public AdaptadorCarrito(ArrayList<Producto> productos, OnProductoClickListener onProductoClickListener){
+
+    public AdaptadorCarrito(ArrayList<Producto> productos, OnProductoClickListener onProductoClickListener) {
         this.clickListener = onProductoClickListener;
         this.productos = productos;
     }
 
     @Override
     public ProductoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto, parent, false);
         return new ProductoViewHolder(v);
     }
 
@@ -29,15 +30,15 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Prod
         holder.foto.setImageResource(p.getFoto());
         holder.nombre.setText(p.getNombre());
         holder.tipo.setText(p.getTipo());
-        holder.cantidad.setText(""+p.getCantidadDisponible()+" "+p.getUnidadDeMedida());
-        holder.precio.setText("$"+p.getPrecio());
+        holder.cantidad.setText("" + p.getCantidadDisponible() + " " + p.getUnidadDeMedida());
+        holder.precio.setText("$" + p.getPrecio());
         holder.cantidadTitle.setText(R.string.cantidad);
-        holder.totalCarrito.setText("$"+p.getPrecio()*p.getCantidadDisponible());
+        holder.totalCarrito.setText("$" + p.getPrecio() * p.getCantidadDisponible());
         holder.totalTitulo.setText(R.string.precio_total);
 
-        holder.v.setOnClickListener(new View.OnClickListener(){
+        holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 clickListener.onProductoClickListener(p);
             }
         });
@@ -48,7 +49,11 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Prod
         return productos.size();
     }
 
-    public static class ProductoViewHolder extends RecyclerView.ViewHolder{
+    public interface OnProductoClickListener {
+        void onProductoClickListener(Producto p);
+    }
+
+    public static class ProductoViewHolder extends RecyclerView.ViewHolder {
         private ImageView foto;
         private TextView nombre;
         private TextView tipo;
@@ -71,8 +76,5 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Prod
             totalTitulo = v.findViewById(R.id.lblTotalTitulo);
             totalCarrito = v.findViewById(R.id.lblTotalCarrito);
         }
-    }
-    public interface OnProductoClickListener{
-        void onProductoClickListener(Producto p);
     }
 }

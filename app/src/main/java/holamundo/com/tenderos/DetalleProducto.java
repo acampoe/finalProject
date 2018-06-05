@@ -2,9 +2,9 @@ package holamundo.com.tenderos;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,9 +19,9 @@ public class DetalleProducto extends AppCompatActivity {
     private Intent i;
     private Bundle bundle;
 
-    private String nombre,tipo,unidad,id;
+    private String nombre, tipo, unidad, id;
     private double precio;
-    private int foto,cantidad;
+    private int foto, cantidad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +45,13 @@ public class DetalleProducto extends AppCompatActivity {
         id = bundle.getString("id");
         lblNombreDetalle.setText(nombre);
         lblTipoDetalle.setText(tipo);
-        lblCantidadDetalle.setText(""+cantidad+" "+unidad);
-        lblPrecioDetalle.setText("$"+precio);
+        lblCantidadDetalle.setText("" + cantidad + " " + unidad);
+        lblPrecioDetalle.setText("$" + precio);
         fotoDetalle.setImageResource(foto);
     }
 
-    public void eliminar(View v){
-        String positivo,negativo;
+    public void eliminar(View v) {
+        String positivo, negativo;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getResources().getString(R.string.eliminar));
         builder.setMessage(getResources().getString(R.string.pregunta_eliminacion));
@@ -80,7 +80,7 @@ public class DetalleProducto extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finish();
-        Intent i = new Intent(DetalleProducto.this,ListaProductos.class);
+        Intent i = new Intent(DetalleProducto.this, ListaProductos.class);
         startActivity(i);
     }
 }

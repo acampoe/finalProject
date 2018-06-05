@@ -1,14 +1,15 @@
 package holamundo.com.tenderos;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import holamundo.com.tenderos.main.Principal;
 
 public class Splash extends AppCompatActivity {
-    private static int splash_timeout=1000;
+    private static int splash_timeout = 1000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

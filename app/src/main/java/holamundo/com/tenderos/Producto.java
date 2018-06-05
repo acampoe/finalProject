@@ -7,10 +7,10 @@ public class Producto {
     private String nombre;
     private double cantidadDisponible;
     private String unidadDeMedida;
-    private long precio;
+    private double precio;
 
     public Producto() {
-        this.foto=0;
+        this.foto = 0;
         this.id = "";
         this.tipo = "";
         this.nombre = "";
@@ -23,15 +23,7 @@ public class Producto {
         this.id = id;
     }
 
-    public int getFoto() {
-        return foto;
-    }
-
-    public void setFoto(int foto) {
-        this.foto = foto;
-    }
-
-    public Producto(String id, String tipo, String nombre, double cantidadDisponible, String unidadDeMedida, long precio, int foto) {
+    public Producto(String id, String tipo, String nombre, double cantidadDisponible, String unidadDeMedida, double precio, int foto) {
         this.foto = foto;
 
         this.id = id;
@@ -40,6 +32,14 @@ public class Producto {
         this.cantidadDisponible = cantidadDisponible;
         this.unidadDeMedida = unidadDeMedida;
         this.precio = precio;
+    }
+
+    public int getFoto() {
+        return foto;
+    }
+
+    public void setFoto(int foto) {
+        this.foto = foto;
     }
 
     public String getId() {
@@ -82,7 +82,7 @@ public class Producto {
         this.unidadDeMedida = unidadDeMedida;
     }
 
-    public long getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
@@ -90,11 +90,11 @@ public class Producto {
         this.precio = precio;
     }
 
-    public void guardar(){
+    public void guardar() {
         Data.guardarProducto(this);
     }
 
-    public void eliminar(){
+    public void eliminar() {
         Data.eliminarProducto(this);
     }
 }

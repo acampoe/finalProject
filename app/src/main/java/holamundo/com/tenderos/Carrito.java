@@ -2,7 +2,6 @@ package holamundo.com.tenderos;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,13 +13,14 @@ import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 
-public class Carrito extends AppCompatActivity implements AdaptadorCarrito.OnProductoClickListener{
+public class Carrito extends AppCompatActivity implements AdaptadorCarrito.OnProductoClickListener {
     private RecyclerView lstCarrito;
     private ArrayList<Producto> productos;
     private AdaptadorCarrito adapter;
     private LinearLayoutManager llm;
     private String db = "compras";
     private DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,7 @@ public class Carrito extends AppCompatActivity implements AdaptadorCarrito.OnPro
 
         llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
-        adapter = new AdaptadorCarrito(productos,this);
+        adapter = new AdaptadorCarrito(productos, this);
 
         lstCarrito.setLayoutManager(llm);
         lstCarrito.setAdapter(adapter);
@@ -43,38 +43,39 @@ public class Carrito extends AppCompatActivity implements AdaptadorCarrito.OnPro
 
     public void onBackPressed() {
         finish();
-        Intent i = new Intent(Carrito.this,ClienteMain.class);
+        Intent i = new Intent(Carrito.this, ClienteMain.class);
         startActivity(i);
     }
 
     @Override
-    public void onProductoClickListener(Producto p){
+    public void onProductoClickListener(Producto p) {
         Intent i = new Intent(Carrito.this, DetalleCarrito.class);
         Bundle b = new Bundle();
-        b.putString("id",p.getId());
-        b.putString("nombre",p.getNombre());
-        b.putString("tipo",p.getTipo());
-        b.putString("medida",p.getUnidadDeMedida());
-        b.putDouble("cantidad",p.getCantidadDisponible());
-        b.putLong("precio",p.getPrecio());
-        b.putInt("foto",p.getFoto());
+        b.putString("id", p.getId());
+        b.putString("nombre", p.getNombre());
+        b.putString("tipo", p.getTipo());
+        b.putString("medida", p.getUnidadDeMedida());
+        b.putDouble("cantidad", p.getCantidadDisponible());
+        b.putDouble("precio", p.getPrecio());
+        b.putInt("foto", p.getFoto());
 
-        i.putExtra("datos",b);
+        i.putExtra("datos", b);
         startActivity(i);
     }
 
-    public void launchCheckout(View v){
-        if (validar()){
+    public void launchCheckout(View v) {
+        if (validar()) {
             Intent i = new Intent(Carrito.this, Checkout.class);
             startActivity(i);
-        }else{
-            Snackbar.make(v,R.string.carrito_vacio,Snackbar.LENGTH_LONG).setAction("Action",null).show();
+        } else {
+            Snackbar.make(v, R.string.carrito_vacio, Snackbar.LENGTH_LONG).setAction("Action", null).show();
         }
     }
-    public boolean validar(){
-        if (Data.carrito.isEmpty()){
+
+    public boolean validar() {
+        if (Data.carrito.isEmpty()) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }

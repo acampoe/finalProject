@@ -1,9 +1,9 @@
 package holamundo.com.tenderos;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,10 +21,11 @@ public class DetalleCompra extends AppCompatActivity {
     private Intent i;
     private Bundle bundle;
 
-    private String nombre,tipo,unidad,id;
-    private long precio;
+    private String nombre, tipo, unidad, id;
+    private double precio;
     private int foto;
-    private double cantidad,cantidadDeseada;
+    private double cantidad, cantidadDeseada;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,35 +45,34 @@ public class DetalleCompra extends AppCompatActivity {
         tipo = bundle.getString("tipo");
         cantidad = bundle.getDouble("cantidad");
         unidad = bundle.getString("medida");
-        precio = bundle.getLong("precio");
+        precio = bundle.getDouble("precio");
         foto = bundle.getInt("foto");
         id = bundle.getString("id");
         lblNombreCompra.setText(nombre);
         lblTipoCompra.setText(tipo);
-        lblCantidadCompra.setText(""+cantidad+" "+unidad);
+        lblCantidadCompra.setText(String.format("%s %s", cantidad, unidad));
         lblUnidadCompra2.setText(unidad);
-        lblPrecioCompra.setText("$"+precio);
+        lblPrecioCompra.setText(String.format("$%s", precio));
         fotoCompra.setImageResource(foto);
         cantidadDeseada = 0;
     }
 
 
-
-    public void agregarAlCarrito(View v){
-        if (txtCantidadDeseada.getText().toString().matches("")){
+    public void agregarAlCarrito(View v) {
+        if (txtCantidadDeseada.getText().toString().matches("")) {
             txtCantidadDeseada.requestFocus();
             txtCantidadDeseada.setError(getResources().getString(R.string.error_cantidad));
-        }else{
+        } else {
             cantidadDeseada = Double.parseDouble(txtCantidadDeseada.getText().toString());
-            Producto p = new Producto(id,tipo,nombre,cantidadDeseada,unidad,precio,foto);
+            Producto p = new Producto(id, tipo, nombre, cantidadDeseada, unidad, precio, foto);
             Data.carrito.add(p);
-            Snackbar.make(v,R.string.agregado,Snackbar.LENGTH_LONG).setAction("Action",null).show();
+            Snackbar.make(v, R.string.agregado, Snackbar.LENGTH_LONG).setAction("Action", null).show();
         }
 
     }
 
-    public void onBackPressed(){
-        Intent i  = new Intent(DetalleCompra.this,ClienteMain.class);
+    public void onBackPressed() {
+        Intent i = new Intent(DetalleCompra.this, ClienteMain.class);
         finish();
         startActivity(i);
     }

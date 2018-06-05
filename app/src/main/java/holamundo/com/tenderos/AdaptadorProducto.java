@@ -1,6 +1,5 @@
 package holamundo.com.tenderos;
 
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,17 +9,18 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.ProductoViewHolder>{
+public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.ProductoViewHolder> {
     private ArrayList<Producto> productos;
     private OnProductoClickListener clickListener;
-    public AdaptadorProducto(ArrayList<Producto> productos, OnProductoClickListener onProductoClickListener){
+
+    public AdaptadorProducto(ArrayList<Producto> productos, OnProductoClickListener onProductoClickListener) {
         this.clickListener = onProductoClickListener;
         this.productos = productos;
     }
 
     @Override
     public ProductoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto, parent, false);
         return new ProductoViewHolder(v);
     }
 
@@ -30,12 +30,12 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Pr
         holder.foto.setImageResource(p.getFoto());
         holder.nombre.setText(p.getNombre());
         holder.tipo.setText(p.getTipo());
-        holder.cantidad.setText(""+p.getCantidadDisponible()+" "+p.getUnidadDeMedida());
-        holder.precio.setText("$"+p.getPrecio());
+        holder.cantidad.setText("" + p.getCantidadDisponible() + " " + p.getUnidadDeMedida());
+        holder.precio.setText("$" + p.getPrecio());
 
-        holder.v.setOnClickListener(new View.OnClickListener(){
+        holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 clickListener.onProductoClickListener(p);
             }
         });
@@ -46,7 +46,11 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Pr
         return productos.size();
     }
 
-    public static class ProductoViewHolder extends RecyclerView.ViewHolder{
+    public interface OnProductoClickListener {
+        void onProductoClickListener(Producto p);
+    }
+
+    public static class ProductoViewHolder extends RecyclerView.ViewHolder {
         private ImageView foto;
         private TextView nombre;
         private TextView tipo;
@@ -63,8 +67,5 @@ public class AdaptadorProducto extends RecyclerView.Adapter<AdaptadorProducto.Pr
             cantidad = v.findViewById(R.id.lblUnidades);
             precio = v.findViewById(R.id.lblPrecio);
         }
-    }
-    public interface OnProductoClickListener{
-        void onProductoClickListener(Producto p);
     }
 }

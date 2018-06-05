@@ -1,6 +1,5 @@
 package holamundo.com.tenderos;
 
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +21,8 @@ public class AdaptadorVenta extends RecyclerView.Adapter<AdaptadorVenta.VentaVie
     public void onBindViewHolder(VentaViewHolder holder, int position) {
         final Venta v = ventas.get(position);
         holder.lblNombreCliente.setText(v.getClientName());
-        holder.lblCantidadProductos.setText(""+v.getProductos().size());
-        holder.lblPrecioTotal.setText("$"+v.getTotal());
+        holder.lblCantidadProductos.setText("" + v.getProductos().size());
+        holder.lblPrecioTotal.setText("$" + v.getTotal());
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,13 +39,18 @@ public class AdaptadorVenta extends RecyclerView.Adapter<AdaptadorVenta.VentaVie
 
     @Override
     public VentaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_venta,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_venta, parent, false);
         return new VentaViewHolder(v);
     }
 
-    public class VentaViewHolder extends RecyclerView.ViewHolder{
-        private TextView lblNombreCliente,lblCantidadProductos,lblPrecioTotal;
+    public interface OnVentaClickListener {
+        void onVentaClickListener(Venta v);
+    }
+
+    public class VentaViewHolder extends RecyclerView.ViewHolder {
         View v;
+        private TextView lblNombreCliente, lblCantidadProductos, lblPrecioTotal;
+
         public VentaViewHolder(View itemView) {
             super(itemView);
             v = itemView;
@@ -54,9 +58,5 @@ public class AdaptadorVenta extends RecyclerView.Adapter<AdaptadorVenta.VentaVie
             lblCantidadProductos = v.findViewById(R.id.lblTotalProductos);
             lblPrecioTotal = v.findViewById(R.id.lblTotalCompra);
         }
-    }
-
-    public interface OnVentaClickListener{
-        void onVentaClickListener(Venta v);
     }
 }
