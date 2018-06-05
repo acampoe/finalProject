@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
-import holamundo.com.tenderos.main.Principal;
+import holamundo.com.tenderos.Principal;
 
 public class Splash extends AppCompatActivity {
     private static int splash_timeout = 1000;

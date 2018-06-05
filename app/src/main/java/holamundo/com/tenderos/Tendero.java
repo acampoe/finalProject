@@ -8,7 +8,7 @@ import android.view.View;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import holamundo.com.tenderos.main.Principal;
+import holamundo.com.tenderos.Principal;
 
 public class Tendero extends AppCompatActivity {
     private DatabaseReference reference;

@@ -16,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-import holamundo.com.tenderos.main.Principal;
+import holamundo.com.tenderos.Principal;
 
 public class ClienteMain extends AppCompatActivity implements AdaptadorProducto.OnProductoClickListener {
     private RecyclerView lstProductos;

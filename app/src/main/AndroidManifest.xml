@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.Principal" />
+        <activity android:name=".Principal" />
         <activity android:name=".Tendero" />
         <activity android:name=".AgregarProducto" />
         <activity

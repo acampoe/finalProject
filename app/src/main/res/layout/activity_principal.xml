@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".main.Principal">
+    tools:context=".Principal">
 
     <Button
         android:id="@+id/cmdTendero"
@@ -28,7 +28,7 @@
         android:layout_gravity="center"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:onClick="startClientes"
+        android:onClick="startCliente"
         android:text="@string/cliente"
         android:textColor="@color/white" />
 </LinearLayout>
