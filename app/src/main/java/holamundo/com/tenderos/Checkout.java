@@ -38,7 +38,7 @@ public class Checkout extends AppCompatActivity {
             builder.setPositiveButton(positivo, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Venta venta = new Venta(id, Data.carrito, totalizar(), txtClientName.getText().toString());
+                    Venta venta = new Venta(id, totalizar(), txtClientName.getText().toString());
                     venta.guardar();
                     Data.carrito.clear();
                     Intent inicio = new Intent(Checkout.this, ClienteMain.class);

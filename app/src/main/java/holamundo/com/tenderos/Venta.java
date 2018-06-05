@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Venta {
     private String id;
-    private ArrayList<Producto> productos;
+    //private ArrayList<Producto> productos;
     private double total;
     private String clientName;
 
     public Venta() {
         this.id = "";
-        this.productos = new ArrayList<>();
+        //this.productos = new ArrayList<>();
         this.total = 0;
         this.clientName = "";
     }
@@ -19,9 +19,9 @@ public class Venta {
         this.id = id;
     }
 
-    public Venta(String id, ArrayList<Producto> productos, double total, String clientName) {
+    public Venta(String id, double total, String clientName) {
         this.id = id;
-        this.productos = productos;
+        //this.productos = productos;
         this.total = total;
         this.clientName = clientName;
     }
@@ -34,13 +34,13 @@ public class Venta {
         this.id = id;
     }
 
-    public ArrayList<Producto> getProductos() {
-        return productos;
-    }
+   // public ArrayList<Producto> getProductos() {
+  //      return productos;
+   // }
 
-    public void setProductos(ArrayList<Producto> productos) {
-        this.productos = productos;
-    }
+    //public void setProductos(ArrayList<Producto> productos) {
+      //  this.productos = productos;
+    //}
 
     public double getTotal() {
         return total;
@@ -61,8 +61,8 @@ public class Venta {
     public void guardar() {
         Producto p = new Producto();
         Producto actual = new Producto();
-        for (int i = 0; i < productos.size(); i++) {
-            p = productos.get(i);
+        for (int i = 0; i < Data.carrito.size(); i++) {
+            p = Data.carrito.get(i);
             for (int j = 0; j < Data.productos.size(); j++) {
                 actual = Data.productos.get(j);
                 if (actual.getId().matches(p.getId())) {

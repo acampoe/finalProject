@@ -20,7 +20,14 @@ public class Data {
     }
 
     public static void guardarVenta(Venta v) {
-        databaseReference.child(purchaseDB).child(v.getId()).setValue(v);
+        databaseReference.child(purchaseDB).child(v.getId()).child("clientName").setValue(v.getClientName());
+        databaseReference.child(purchaseDB).child(v.getId()).child("id").setValue(getId());
+//        databaseReference.child(purchaseDB).child(v.getId()).setValue(v);
+        databaseReference.child(purchaseDB).child(v.getId()).child("total").setValue(v.getTotal());
+        for (int i = 0; i < carrito.size(); i++) {
+            databaseReference.child(purchaseDB).child(v.getId()).child("productos").push().setValue(carrito.get(i));
+        }
+
     }
 
     public static void descontarUnidad(Producto p, double unidades) {

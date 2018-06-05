@@ -21,7 +21,7 @@ public class AdaptadorVenta extends RecyclerView.Adapter<AdaptadorVenta.VentaVie
     public void onBindViewHolder(VentaViewHolder holder, int position) {
         final Venta v = ventas.get(position);
         holder.lblNombreCliente.setText(v.getClientName());
-        holder.lblCantidadProductos.setText("" + v.getProductos().size());
+        //holder.lblCantidadProductos.setText("".size());
         holder.lblPrecioTotal.setText("$" + v.getTotal());
         holder.v.setOnClickListener(new View.OnClickListener() {
             @Override

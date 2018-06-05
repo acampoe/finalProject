@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,16 +41,32 @@ public class DetalleVenta extends AppCompatActivity implements AdaptadorCarrito.
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         DatabaseReference reference = databaseReference.child(db);
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Venta v = snapshot.getValue(Venta.class);
-                        //productos = v.getProductos(); Se supone que se hace así en mi modelo, pero no en Firebase!
-                    }
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                for (DataSnapshot snapshot:dataSnapshot.child("productos").getChildren()){
+     //                   productos = snapshot.getValue(ArrayList.class);
                 }
-                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                //for (DataSnapshot snapshot:dataSnapshot.child("productos").getChildren()){
+
+                       // Producto p = dataSnapshot.getValue(Producto.class);
+                        //productos.add(p);
+
+                //}
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
             }
 
             @Override
